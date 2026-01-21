@@ -1,17 +1,26 @@
 #include "MatchEngine.h"
 
 MatchEngine::MatchEngine() {
-    // TODO: Implement
+    ht = HashTable();
+    bst = BST();
+    
 }
 
 void MatchEngine::addRule(int rid, uint8_t key) {
-    // TODO: Implement
+    ht.add(rid, key);
+    bst.add(rid, key);
 }
 
 void MatchEngine::deleteRule(int rid, uint8_t key) {
-    // TODO: Implement
+    ht.remove(rid, key);
+    bst.remove(rid, key);
 }
 
 int MatchEngine::match(uint8_t key) {
-    // TODO: Implement
+    int ht_result = ht.search(key);
+    if (ht_result != -1) {
+        return ht_result;
+    } else {
+        return bst.search(key);
+    }
 }

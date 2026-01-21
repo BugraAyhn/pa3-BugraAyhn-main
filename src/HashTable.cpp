@@ -34,4 +34,5 @@ int HashTable::search(uint8_t key) {
     else {
         return -1;
 }
+}
 
